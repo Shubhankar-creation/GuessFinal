@@ -5,7 +5,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField] GameObject[] shapePrefab;
     [SerializeField] float speed = 2;
-    [SerializeField] float sensitivity;
+    [SerializeField] float sensitivity = 0.05f;
 
     private Touch touch;
     private GameObject shapeInt;
@@ -36,8 +36,8 @@ public class Movement : MonoBehaviour
         {
             touch = Input.GetTouch(0);
 
-            float xSlide = Mathf.Clamp(transform.position.x + touch.deltaPosition.x * sensitivity, -0.8f, 0.8f);
-            float ySlide = Mathf.Clamp(transform.position.y + touch.deltaPosition.y * sensitivity, -2.5f, 1.5f);
+            float xSlide = Mathf.Clamp(transform.position.x + touch.deltaPosition.x * sensitivity, -2f, 2f);
+            float ySlide = Mathf.Clamp(transform.position.y + touch.deltaPosition.y * sensitivity, -5f, 5f);
 
             if (touch.phase == TouchPhase.Moved)
             {
